@@ -6,8 +6,8 @@
 
 set -e
 
-base_version=1.19
-version=1.19.15
+base_version=1.26
+version=1.26.2
 
 if [ -z $OPENSHIFT_MYSQL_DB_HOST ]
 then
@@ -36,7 +36,7 @@ then
     echo
     echo "Database not found!  Creating and importing"
     echo
-    /usr/bin/mysqladmin -u "$OPENSHIFT_MYSQL_DB_USERNAME" --password="$OPENSHIFT_MYSQL_DB_PASSWORD" -h "$OPENSHIFT_MYSQL_DB_HOST" -P "$OPENSHIFT_MYSQL_DB_PORT" create "openshift_mediawiki" 
+    /usr/bin/mysqladmin -u "$OPENSHIFT_MYSQL_DB_USERNAME" --password="$OPENSHIFT_MYSQL_DB_PASSWORD" -h "$OPENSHIFT_MYSQL_DB_HOST" -P "$OPENSHIFT_MYSQL_DB_PORT" create "openshift_mediawiki"
     /usr/bin/mysql -u "$OPENSHIFT_MYSQL_DB_USERNAME" --password="$OPENSHIFT_MYSQL_DB_PASSWORD" -h "$OPENSHIFT_MYSQL_DB_HOST" -P "$OPENSHIFT_MYSQL_DB_PORT" openshift_mediawiki < "$OPENSHIFT_REPO_DIR/.openshift/action_hooks/openshift.sql"
     echo
     echo "done."

@@ -30,6 +30,9 @@ $wgMetaNamespace = "OpenShift_Wiki";
 $wgScriptPath       = "";
 $wgScriptExtension  = ".php";
 
+## The URL path to static resources (images, scripts, etc.)
+$wgResourceBasePath = $wgScriptPath;
+
 ## The relative URL path to the skins directory
 $wgStylePath        = "$wgScriptPath/skins";
 
@@ -114,17 +117,13 @@ $wgDefaultSkin = "vector";
 ## For attaching licensing metadata to pages, and displaying an
 ## appropriate copyright notice / icon. GNU Free Documentation
 ## License and Creative Commons licenses are supported so far.
-#$wgEnableCreativeCommonsRdf = true;
 $wgRightsPage = ""; # Set to the title of a wiki page that describes your license/copyright
-$wgRightsUrl  = "";
-$wgRightsText = "";
-$wgRightsIcon = "";
-# $wgRightsCode = ""; # Not yet used
+$wgRightsUrl = "https://creativecommons.org/licenses/by/3.0/";
+$wgRightsText = "Creative Commons Attribution";
+$wgRightsIcon = "$wgResourceBasePath/resources/assets/licenses/cc-by.png";
 
 # Path to the GNU diff3 utility. Used for conflict resolution.
 $wgDiff3 = "/usr/bin/diff3";
-
-
 
 # Query string length limit for ResourceLoader. You should only set this if
 # your web server has a query string length limit (then set it to that limit),
@@ -132,6 +131,12 @@ $wgDiff3 = "/usr/bin/diff3";
 # that value)
 $wgResourceLoaderMaxQueryLength = -1;
 
+# Enabled skins.
+# The following skins were automatically enabled:
+wfLoadSkin( 'CologneBlue' );
+wfLoadSkin( 'Modern' );
+wfLoadSkin( 'MonoBook' );
+wfLoadSkin( 'Vector' );
 
 # End of automatically generated settings.
 # Add more configuration options below.
